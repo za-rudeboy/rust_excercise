@@ -1,5 +1,5 @@
 fn count_characters(s: String) {
-    print!(
+    println!(
         "{text} has {length} characters\n",
         text = s,
         length = s.len()
@@ -14,11 +14,17 @@ fn print_quotes(quote: String) {
     println!("{}", obi_said);
 }
 
+fn madlib(noun: String, verb: String, adjective: String, adverb: String) {
+    println!("Do you {} your {} {} {}?", noun, verb, adjective, adverb)
+}
+
+fn main(){}
+
 #[cfg(test)]
 mod tests {
     use crate::count_characters;
     use crate::print_quotes;
-
+    use crate::madlib;
     #[test]
     fn should_count_characters() {
         count_characters(String::from("Homer"))
@@ -27,5 +33,10 @@ mod tests {
     #[test]
     fn should_print_quote() {
         print_quotes(String::from("These aren't the droids you're looking for"))
+    }
+
+    #[test]
+    fn should_madlib() {
+        madlib(String::from("dog"), String::from("walk"), String::from("blue"), String::from("quickly"))
     }
 }
