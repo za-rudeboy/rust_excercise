@@ -18,13 +18,25 @@ fn madlib(noun: String, verb: String, adjective: String, adverb: String) {
     println!("Do you {} your {} {} {}?", noun, verb, adjective, adverb)
 }
 
-fn main(){}
+fn simple_calculator(first: String, second: String) {
+    let first_int = first.parse::<i32>().unwrap();
+    let second_int = first.parse::<i32>().unwrap();
+
+    println!("{}", first_int - second_int);
+    println!("{}", first_int + second_int);
+    println!("{}", first_int / second_int);
+    println!("{}", first_int * second_int);
+}
+
+fn main() {}
 
 #[cfg(test)]
 mod tests {
     use crate::count_characters;
-    use crate::print_quotes;
     use crate::madlib;
+    use crate::print_quotes;
+    use crate::simple_calculator;
+
     #[test]
     fn should_count_characters() {
         count_characters(String::from("Homer"))
@@ -37,6 +49,16 @@ mod tests {
 
     #[test]
     fn should_madlib() {
-        madlib(String::from("dog"), String::from("walk"), String::from("blue"), String::from("quickly"))
+        madlib(
+            String::from("dog"),
+            String::from("walk"),
+            String::from("blue"),
+            String::from("quickly"),
+        )
+    }
+
+    #[test]
+    fn should_calculate_numbers() {
+        simple_calculator(String::from("1"), String::from("23"))
     }
 }
